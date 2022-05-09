@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FoodMovement : MonoBehaviour
 {
+    public GameController gameController;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +26,6 @@ public class FoodMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         RandomPlacement();
+        gameController.AddScore();
     }
 }

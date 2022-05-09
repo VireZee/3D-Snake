@@ -13,7 +13,7 @@ public class SnakeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             transform.Translate(0, 1, 0);
         }
@@ -21,7 +21,7 @@ public class SnakeMovement : MonoBehaviour
         {
             transform.Translate(-1, 0, 0);
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             transform.Translate(0, -1, 0);
         }
@@ -29,11 +29,11 @@ public class SnakeMovement : MonoBehaviour
         {
             transform.Translate(1, 0, 0);
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             transform.Translate(0, 0, 1);
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             transform.Translate(0, 0, -1);
         }
