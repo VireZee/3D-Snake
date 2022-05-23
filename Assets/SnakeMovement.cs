@@ -57,7 +57,7 @@ public class SnakeMovement : MonoBehaviour
         {
             transform.Translate(0, 0, 1);
         }
-        if (transform.position.z > 4    )
+        if (transform.position.z > 4)
         {
             transform.Translate(0, 0, -1);
         }
