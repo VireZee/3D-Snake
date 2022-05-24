@@ -9,7 +9,6 @@ public class SnakeMovement : MonoBehaviour
     {
         
     }
-
     // Update is called once per frame
     void Update()
     {

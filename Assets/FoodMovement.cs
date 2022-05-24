@@ -5,13 +5,11 @@ using UnityEngine;
 public class FoodMovement : MonoBehaviour
 {
     public GameController gameController;
-    public Snake snake;
     // Start is called before the first frame update
     void Start()
     {
         RandomPlacement();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -28,6 +26,5 @@ public class FoodMovement : MonoBehaviour
     {
         RandomPlacement();
         gameController.AddScore();
-        snake.CreateSnake();
     }
 }

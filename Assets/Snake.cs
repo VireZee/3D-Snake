@@ -14,10 +14,7 @@ public class Snake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AddBody();
-        }
+        
     }
     public void CreateSnake()
     {
@@ -27,5 +24,9 @@ public class Snake : MonoBehaviour
     {
         var newBody = Instantiate(bodyPrefab);
         body.Add(newBody);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        CreateSnake();
     }
 }
