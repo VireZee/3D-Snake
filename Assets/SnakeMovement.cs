@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Direction
+{
+    none, up, down, left, right, ins, outs
+}
 public class SnakeMovement : MonoBehaviour
 {
     private Snake snake;
-    private string directionBefore;
+    private Direction directionBefore = Direction.none;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,41 +18,65 @@ public class SnakeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            snake.savePosition();
-            transform.Translate(0, 1, 0);
-            snake.updatePosition();
+            if (directionBefore != Direction.outs)
+            {
+                snake.savePosition();
+                transform.Translate(0, 0, 1);
+                snake.updatePosition();
+                directionBefore = Direction.ins;
+            }
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            snake.savePosition();
-            transform.Translate(-1, 0, 0);
-            snake.updatePosition();
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            snake.savePosition();
-            transform.Translate(0, -1, 0);
-            snake.updatePosition();
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            snake.savePosition();
-            transform.Translate(1, 0, 0);
-            snake.updatePosition();
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            snake.savePosition();
-            transform.Translate(0, 0, 1);
-            snake.updatePosition();
+            if (directionBefore != Direction.right)
+            {
+                snake.savePosition();
+                transform.Translate(-1, 0, 0);
+                snake.updatePosition();
+                directionBefore = Direction.left;
+            }
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            snake.savePosition();
-            transform.Translate(0, 0, -1);
-            snake.updatePosition();
+            if (directionBefore != Direction.ins)
+            {
+                snake.savePosition();
+                transform.Translate(0, 0, -1);
+                snake.updatePosition();
+                directionBefore = Direction.outs;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (directionBefore != Direction.left)
+            {
+                snake.savePosition();
+                transform.Translate(1, 0, 0);
+                snake.updatePosition();
+                directionBefore = Direction.right;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (directionBefore != Direction.down)
+            {
+                snake.savePosition();
+                transform.Translate(0, 1, 0);
+                snake.updatePosition();
+                directionBefore = Direction.up;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            if (directionBefore != Direction.up)
+            {
+                snake.savePosition();
+                transform.Translate(0, -1, 0);
+                snake.updatePosition();
+                directionBefore = Direction.down;
+            }
         }
         if (transform.position.x < 0)
         {
@@ -86,9 +114,5 @@ public class SnakeMovement : MonoBehaviour
             transform.Translate(0, 0, -1);
             snake.updatePosition();
         }
-    }
-    private void saveDirection()
-    {
-        directionBefore = 
     }
 }

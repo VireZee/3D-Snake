@@ -42,6 +42,7 @@ public class Snake : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        AudioController.instance.PlaySFX(0);
         CreateSnake();
     }
 }
