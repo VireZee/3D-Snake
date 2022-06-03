@@ -7,16 +7,6 @@ public class Snake : MonoBehaviour
     public List<GameObject> listBody;
     public GameObject bodyPrefab;
     private Vector3 positionBefore;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void CreateSnake()
     {
         AddBody();
