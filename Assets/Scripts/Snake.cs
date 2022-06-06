@@ -15,6 +15,7 @@ public class Snake : MonoBehaviour
     {
         var newBody = Instantiate(bodyPrefab);
         listBody.Add(newBody);
+        updatePosition();
     }
     public void savePosition()
     {
@@ -32,7 +33,10 @@ public class Snake : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        AudioController.instance.PlaySFX(0);
-        CreateSnake();
+        if (other.tag == "Food")
+        {
+            AudioController.instance.PlaySFX(0);
+            CreateSnake();
+        }
     }
 }

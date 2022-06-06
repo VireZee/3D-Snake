@@ -8,23 +8,53 @@ public enum Direction
 }
 public class SnakeMovement : MonoBehaviour
 {
+    private int counterFrame;
     private Snake snake;
     private Direction directionBefore = Direction.none;
     // Start is called before the first frame update
     void Start()
     {
         snake = GetComponent<Snake>();
+        Application.targetFrameRate = 30;
     }
     // Update is called once per frame
     void Update()
     {
+        if (counterFrame > 10)
+        {
+            counterFrame = 0;
+            snake.savePosition();
+            switch (directionBefore)
+            {
+                case Direction.right:
+                    transform.Translate(1, 0, 0);
+                    break;
+                case Direction.left:
+                    transform.Translate(-1, 0, 0);
+                    break;
+                case Direction.up:
+                    transform.Translate(0, 1, 0);
+                    break;
+                case Direction.down:
+                    transform.Translate(0, -1, 0);
+                    break;
+                case Direction.ins:
+                    transform.Translate(0, 0, 1);
+                    break;
+                case Direction.outs:
+                    transform.Translate(0, 0, -1);
+                    break;
+            }
+            snake.updatePosition();
+        }
+        else
+        {
+            counterFrame++;
+        }
         if (Input.GetKeyDown(KeyCode.W))
         {
             if (directionBefore != Direction.outs)
             {
-                snake.savePosition();
-                transform.Translate(0, 0, 1);
-                snake.updatePosition();
                 directionBefore = Direction.ins;
             }
         }
@@ -32,9 +62,6 @@ public class SnakeMovement : MonoBehaviour
         {
             if (directionBefore != Direction.right)
             {
-                snake.savePosition();
-                transform.Translate(-1, 0, 0);
-                snake.updatePosition();
                 directionBefore = Direction.left;
             }
         }
@@ -42,9 +69,6 @@ public class SnakeMovement : MonoBehaviour
         {
             if (directionBefore != Direction.ins)
             {
-                snake.savePosition();
-                transform.Translate(0, 0, -1);
-                snake.updatePosition();
                 directionBefore = Direction.outs;
             }
         }
@@ -52,9 +76,6 @@ public class SnakeMovement : MonoBehaviour
         {
             if (directionBefore != Direction.left)
             {
-                snake.savePosition();
-                transform.Translate(1, 0, 0);
-                snake.updatePosition();
                 directionBefore = Direction.right;
             }
         }
@@ -62,9 +83,6 @@ public class SnakeMovement : MonoBehaviour
         {
             if (directionBefore != Direction.down)
             {
-                snake.savePosition();
-                transform.Translate(0, 1, 0);
-                snake.updatePosition();
                 directionBefore = Direction.up;
             }
         }
@@ -72,9 +90,6 @@ public class SnakeMovement : MonoBehaviour
         {
             if (directionBefore != Direction.up)
             {
-                snake.savePosition();
-                transform.Translate(0, -1, 0);
-                snake.updatePosition();
                 directionBefore = Direction.down;
             }
         }
