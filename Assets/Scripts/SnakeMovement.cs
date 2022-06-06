@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum Direction
 {
@@ -95,15 +96,11 @@ public class SnakeMovement : MonoBehaviour
         }
         if (transform.position.x < 0)
         {
-            snake.savePosition();
-            transform.Translate(1, 0, 0);
-            snake.updatePosition();
+            SceneManager.LoadScene("GameOver");
         }
         if (transform.position.x > 4)
         {
-            snake.savePosition();
-            transform.Translate(-1, 0, 0);
-            snake.updatePosition();
+            SceneManager.LoadScene("GameOver");
         }
         if (transform.position.y < 0)
         {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Snake : MonoBehaviour
 {
@@ -37,6 +38,10 @@ public class Snake : MonoBehaviour
         {
             AudioController.instance.PlaySFX(0);
             CreateSnake();
+        }
+        if (other.tag == "Over")
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
