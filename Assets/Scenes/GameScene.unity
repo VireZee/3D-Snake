@@ -154,7 +154,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 77a4ca0d7fc8c9649a23f48700438dfc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxCollection:
   - {fileID: 8300000, guid: 6ac9028435a512f42812642e455f01e2, type: 3}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 5d681a43c8f9ca545bd1752056c27dad, type: 3}
 --- !u!82 &159933124
 AudioSource:
   m_ObjectHideFlags: 0

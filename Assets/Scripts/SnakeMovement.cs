@@ -12,6 +12,7 @@ public class SnakeMovement : MonoBehaviour
     private int counterFrame;
     private Snake snake;
     private Direction directionBefore = Direction.none;
+    private AudioSource[] audioSources;
     // Start is called before the first frame update
     void Start()
     {
@@ -96,27 +97,39 @@ public class SnakeMovement : MonoBehaviour
         }
         if (transform.position.x < 0)
         {
+            AudioController.instance.PlaySFX(1);
             SceneManager.LoadScene("GameOver");
+            audioSources[1].volume = 5;
         }
         if (transform.position.x > 4)
         {
+            AudioController.instance.PlaySFX(1);
             SceneManager.LoadScene("GameOver");
+            audioSources[1].volume = 5;
         }
         if (transform.position.y < 0)
         {
+            AudioController.instance.PlaySFX(1);
             SceneManager.LoadScene("GameOver");
+            audioSources[1].volume = 5;
         }
         if (transform.position.y > 4)
         {
+            AudioController.instance.PlaySFX(1);
             SceneManager.LoadScene("GameOver");
+            audioSources[1].volume = 5;
         }
         if (transform.position.z < 0)
         {
+            AudioController.instance.PlaySFX(1);
             SceneManager.LoadScene("GameOver");
+            audioSources[1].volume = 5;
         }
         if (transform.position.z > 4)
         {
+            AudioController.instance.PlaySFX(1);
             SceneManager.LoadScene("GameOver");
+            audioSources[1].volume = 5;
         }
     }
 }

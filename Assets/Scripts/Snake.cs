@@ -8,6 +8,7 @@ public class Snake : MonoBehaviour
     public List<GameObject> listBody;
     public GameObject bodyPrefab;
     private Vector3 positionBefore;
+    private AudioSource[] audioSources;
     private void CreateSnake()
     {
         AddBody();
@@ -41,7 +42,9 @@ public class Snake : MonoBehaviour
         }
         if (other.tag == "Over")
         {
+            AudioController.instance.PlaySFX(1);
             SceneManager.LoadScene("GameOver");
+            audioSources[1].volume = 5;
         }
     }
 }
