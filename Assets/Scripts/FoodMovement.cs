@@ -17,9 +17,9 @@ public class FoodMovement : MonoBehaviour
     }
     void RandomPlacement()
     {
-        var x = Random.Range(0, 4) + 0.5f;
-        var y = Random.Range(0, 4) + 0.5f;
-        var z = Random.Range(0, 4) + 0.5f;
+        var x = Random.Range(0, 4) + 1f;
+        var y = Random.Range(0, 4) + 1f;
+        var z = Random.Range(0, 4) + 1f;
         transform.position = new Vector3(x, y, z);
     }
     private void OnTriggerEnter(Collider other)

@@ -104,27 +104,19 @@ public class SnakeMovement : MonoBehaviour
         }
         if (transform.position.y < 0)
         {
-            snake.savePosition();
-            transform.Translate(0, 1, 0);
-            snake.updatePosition();
+            SceneManager.LoadScene("GameOver");
         }
         if (transform.position.y > 4)
         {
-            snake.savePosition();
-            transform.Translate(0, -1, 0);
-            snake.updatePosition();
+            SceneManager.LoadScene("GameOver");
         }
         if (transform.position.z < 0)
         {
-            snake.savePosition();
-            transform.Translate(0, 0, 1);
-            snake.updatePosition();
+            SceneManager.LoadScene("GameOver");
         }
         if (transform.position.z > 4)
         {
-            snake.savePosition();
-            transform.Translate(0, 0, -1);
-            snake.updatePosition();
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
